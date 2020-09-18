@@ -10,19 +10,37 @@ var filename = 'stars.mp3'
 var url = api_base + "files/path/home/" + username + "/mysite/" 
 
 function loadlist(url) {
-  return fetch('https://www.pythonanywhere.com/api/v0/user/shihm714/cpu/', {
+  return fetch(url, {
     //body: JSON.stringify(data), // must match 'Content-Type' header
     //cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-    //credentials: 'same-origin', // include, same-origin, *omit
+    //credentials: 'include', // include, same-origin, *omit
     headers: { "Authorization": "Token " + api_token },
+    method: 'GET', // *GET, POST, PUT, DELETE, etc.
+    //mode: 'no-cors', // no-cors, cors, *same-origin
+    //redirect: 'follow', // manual, *follow, error
+    //referrer: 'no-referrer', // *client, no-referrer
+  })
+  .then(response => {console.log(response)}) // parses response to JSON
+}
+
+function getsong(name){
+  var url='https://shihm714.pythonanywhere.com/'+name
+  fetch(url, {
+    //body: JSON.stringify(data), // must match 'Content-Type' header
+    //cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    //credentials: 'include', // include, same-origin, *omit
+    //headers: { "Authorization": "Token " + api_token },
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
     mode: 'no-cors', // no-cors, cors, *same-origin
     //redirect: 'follow', // manual, *follow, error
     //referrer: 'no-referrer', // *client, no-referrer
   })
-  .then(response => response.json()) // parses response to JSON
+  .then(function(response) {
+    console.log(response)
+  })
+  
 }
 
 function test(){
-  console.log(loadlist(url))
+  loadlist(url)
 }
