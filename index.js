@@ -16,7 +16,7 @@ function loadlist(url) {
     //credentials: 'include', // include, same-origin, *omit
     headers: { "Authorization": "Token " + api_token },
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
-    //mode: 'no-cors', // no-cors, cors, *same-origin
+    mode: 'no-cors', // no-cors, cors, *same-origin
     //redirect: 'follow', // manual, *follow, error
     //referrer: 'no-referrer', // *client, no-referrer
   })
